@@ -126,7 +126,6 @@ class Uploader
         //得到今天日期
         $today = date('Ymd', time());
         //得到文件名
-//        $file_name = 'image/'.$today.'/'.$this->fileName;
         $file_name = 'alioss/'.$today.'/'.$this->fileName;
         //$ossconfig为获取OSS的配置信息
         //$ossconfig = $this->getOssApi();
