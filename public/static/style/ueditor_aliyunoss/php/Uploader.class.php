@@ -136,10 +136,10 @@ class Uploader
             //执行阿里云上传
             $result = $ossClient->uploadFile($ossconfig['Bucket'],'zf/ueditor/'. $file_name, $file["tmp_name"]);
             //赋给图片路径（原代码）
-//          $this->fullName = $result['info']['url'];
+            $this->fullName = $result['info']['url'];
 //获得上传之后访问该图片的路径
-            $endpoint = str_replace('http://', '', $ossconfig['Endpoint']);
-            $this->ossimgurl = "https://".$ossconfig['Bucket'].".".$endpoint."/".$file_name;//ossimgurl这是自定义属性，避免以ueditor方式获得图片地址
+//            $endpoint = str_replace('http://', '', $ossconfig['Endpoint']);
+            $this->ossimgurl = $result['info']['url'];//ossimgurl这是自定义属性，避免以ueditor方式获得图片地址
             $this->stateInfo = $this->stateMap[0];
         } catch (OssException $e) {
 //          $this->stateInfo = $this->getStateInfo("ERROR_FILE_MOVE");
